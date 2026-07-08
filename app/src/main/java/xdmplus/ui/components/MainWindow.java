@@ -120,9 +120,9 @@ public class MainWindow extends XDMFrame implements ActionListener {
 //		showTwitterIcon = true;
 //		showFBIcon = true;
 //		showGitHubIcon = true;
-//		fbUrl = "https://www.facebook.com/XDM.subhra74/";
-//		twitterUrl = "https://twitter.com/XDM_subhra74";
-//		gitHubUrl = "https://github.com/subhra74/xdm";
+//		fbUrl = XDMApp.APP_FACEBOOK_URL;
+//		twitterUrl = XDMApp.APP_TWITTER_URL;
+//		gitHubUrl = XDMApp.APP_HOME_URL;
 //		super.registerTitlePanel(panel);
 //	}
 
@@ -1445,15 +1445,15 @@ public class MainWindow extends XDMFrame implements ActionListener {
 	}
 
 	private void openTranslationPage() {
-		XDMUtils.browseURL("https://github.com/subhra74/xdm/wiki/Submitting-translations-for-XDM");
+		XDMUtils.browseURL("https://github.com/xdmplus/xdmplus/wiki/Submitting-translations-for-XDM-plus");
 	}
 
 	private void openSupportPage() {
-		XDMUtils.browseURL("https://github.com/subhra74/xdm/wiki");
+		XDMUtils.browseURL(XDMApp.APP_WIKI_URL);
 	}
 
 	private void openBugReportPage() {
-		XDMUtils.browseURL("https://github.com/subhra74/xdm/issues");
+		XDMUtils.browseURL(XDMApp.APP_HOME_URL + "/issues");
 	}
 
 	private int scale(int i) {
