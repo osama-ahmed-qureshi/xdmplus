@@ -99,16 +99,16 @@ public class ImageResource {
 	}
 
 	/**
-	 * Many of this app's toolbar/chrome icons are flat white/light silhouettes
-	 * designed for a dark background. In light theme those become invisible,
-	 * so single-color, light-toned icons are retinted at load time to the
-	 * theme's current on-surface color. Multi-color artwork (category icons,
-	 * brand logos, thumbnails) is detected and left untouched.
+	 * Many of this app's toolbar/chrome icons are flat single-color
+	 * silhouettes (some white, some black) each hardcoded for whatever
+	 * background they originally shipped on. Since panel backgrounds now
+	 * flip between light and dark themes, single-color icons are retinted at
+	 * load time to the theme's current on-surface color so they stay visible
+	 * regardless of which surface they end up on. Multi-color artwork
+	 * (category icons, brand logos, thumbnails) is detected and left
+	 * untouched.
 	 */
 	private static BufferedImage retintIfMonochrome(BufferedImage src) {
-		if (ColorResource.isDark()) {
-			return src;
-		}
 		int w = src.getWidth();
 		int h = src.getHeight();
 		int refR = -1, refG = -1, refB = -1;
@@ -136,12 +136,10 @@ public class ImageResource {
 		if (!monochrome || refR < 0) {
 			return src;
 		}
-		double brightness = (refR + refG + refB) / 3.0;
-		if (brightness < 170) {
-			// already a dark icon, fine on a light background
+		Color tint = ColorResource.getWhite();
+		if (refR == tint.getRed() && refG == tint.getGreen() && refB == tint.getBlue()) {
 			return src;
 		}
-		Color tint = ColorResource.getWhite();
 		BufferedImage out = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		for (int y = 0; y < h; y++) {
 			for (int x = 0; x < w; x++) {

@@ -64,12 +64,10 @@ public class XDMApp implements DownloadListener, DownloadWindowListener, Compara
 	public static final String GLOBAL_LOCK_FILE = ".xdmplus-global-lock";
 	public static final String APP_VERSION = "1.0.0";
 	public static final String XDM_WINDOW_TITLE = "XDM+";
-	public static final String APP_UPDAT_URL = "https://api.github.com/repos/xdmplus/xdmplus/releases/latest";
-	public static final String APP_UPDATE_CHK_URL = "https://xdmplus.github.io/xdmplus/update-checker.html?v=";
-	public static final String APP_WIKI_URL = "https://github.com/xdmplus/xdmplus/wiki";
-	public static final String APP_HOME_URL = "https://github.com/xdmplus/xdmplus";
-	public static final String APP_TWITTER_URL = "https://twitter.com/xdmplus";
-	public static final String APP_FACEBOOK_URL = "https://www.facebook.com/xdmplus/";
+	public static final String APP_UPDAT_URL = "https://api.github.com/repos/osama-ahmed-qureshi/xdmplus/releases/latest";
+	public static final String APP_UPDATE_CHK_URL = "https://osama-ahmed-qureshi.github.io/xdmplus/update-checker.html?v=";
+	public static final String APP_WIKI_URL = "https://github.com/osama-ahmed-qureshi/xdmplus/wiki";
+	public static final String APP_HOME_URL = "https://github.com/osama-ahmed-qureshi/xdmplus";
 	public static final String[] ZOOM_LEVEL_STRINGS = { "Default", "50%", "75%", "100%", "125%", "150%", "200%", "250%",
 			"300%", "350%", "400%", "450%", "500%" };
 	public static final double[] ZOOM_LEVEL_VALUES = { -1, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5,

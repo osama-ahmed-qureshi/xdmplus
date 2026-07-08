@@ -86,7 +86,7 @@ public class XDMFrame extends JFrame implements ComponentListener {
 		panTitle.setOpaque(true);
 
 		panClient = new JPanel(new BorderLayout());
-		panClient.setBackground(Color.WHITE);
+		panClient.setBackground(ColorResource.getDarkestBgColor());
 		JPanel panContent = new JPanel(new BorderLayout());
 		panContent.add(panTitle, BorderLayout.NORTH);
 		panContent.add(panClient);

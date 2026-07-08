@@ -1,5 +1,6 @@
 /*
  * Copyright (c)  Subhra Das Gupta
+ * Copyright (c)  Osama Ahmed Qureshi
  *
  * This file is part of Xtream Download Manager.
  *

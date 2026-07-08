@@ -3,9 +3,12 @@ package xdmplus.ui.components;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,7 +17,6 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 import javax.swing.event.MouseInputAdapter;
 
-import xdmplus.Config;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
@@ -41,9 +43,7 @@ public class Page extends JPanel {
 		this.title = title;
 		this.width = width;
 		this.parent = parent;
-		Color base = ColorResource.getDarkestBgColor();
-		bgColor = new Color(base.getRed(), base.getGreen(), base.getBlue(),
-				Config.getInstance().isNoTransparency() ? 255 : 235);
+		bgColor = ColorResource.getDarkestBgColor();
 		MouseInputAdapter ma = new MouseInputAdapter() {
 		};
 
@@ -146,8 +146,14 @@ public class Page extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.setColor(bgColor);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		Graphics2D g2 = (Graphics2D) g.create();
+		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+		g2.setColor(bgColor);
+		int arc = getScaledInt(20);
+		// M3 side-sheet shape: round only the leading (left) edge, since the
+		// panel is flush with the window's right edge.
+		g2.fill(new RoundRectangle2D.Float(0, 0, getWidth() + arc, getHeight(), arc, arc));
+		g2.dispose();
 	}
 
 	public void addToPage(Component c) {

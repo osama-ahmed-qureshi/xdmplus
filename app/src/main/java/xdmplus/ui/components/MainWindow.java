@@ -92,7 +92,7 @@ public class MainWindow extends XDMFrame implements ActionListener {
 
 	JPanel toolbar;
 	UpdateNotifyPanel updateNotifyPanel;
-	JLabel btnMonitoring;
+	MaterialSwitch btnMonitoring;
 
 	private Box rightbox; // holds tabs, menu and window control buttons
 
@@ -108,20 +108,14 @@ public class MainWindow extends XDMFrame implements ActionListener {
 
 			@Override
 			public void configChanged() {
-				btnMonitoring.setIcon(
-						Config.getInstance().isBrowserMonitoringEnabled() ? ImageResource.getIcon("on.png", 85, 21)
-								: ImageResource.getIcon("off.png", 85, 21));
+				btnMonitoring.setSelected(Config.getInstance().isBrowserMonitoringEnabled());
 			}
 		});
 	}
 
 //	@Override
 //	protected void registerTitlePanel(JPanel panel) {
-//		showTwitterIcon = true;
-//		showFBIcon = true;
 //		showGitHubIcon = true;
-//		fbUrl = XDMApp.APP_FACEBOOK_URL;
-//		twitterUrl = XDMApp.APP_TWITTER_URL;
 //		gitHubUrl = XDMApp.APP_HOME_URL;
 //		super.registerTitlePanel(panel);
 //	}
@@ -426,24 +420,15 @@ public class MainWindow extends XDMFrame implements ActionListener {
 		toolBox.add(btn7);
 		toolBox.add(Box.createHorizontalGlue());
 
-		btnMonitoring = new JLabel(ImageResource.getIcon("on.png", 85, 21));
-		// btnMonitoring.setForeground(Color.WHITE);
-		btnMonitoring.setIconTextGap(scale(15));
-		btnMonitoring.putClientProperty("xdmbutton.norollover", "true");
-		// btnMonitoring.setBackground(ColorResource.getTitleColor());
+		btnMonitoring = new MaterialSwitch(StringResource.get("BROWSER_MONITORING"));
 		btnMonitoring.setName("BROWSER_MONITORING");
-		btnMonitoring.setText(StringResource.get("BROWSER_MONITORING"));
-		btnMonitoring.setHorizontalTextPosition(JButton.LEADING);
 		btnMonitoring.setFont(FontResource.getBigFont());
+		btnMonitoring.setSelected(Config.getInstance().isBrowserMonitoringEnabled());
 
-		btnMonitoring
-				.setIcon(Config.getInstance().isBrowserMonitoringEnabled() ? ImageResource.getIcon("on.png", 85, 21)
-						: ImageResource.getIcon("off.png", 85, 21));
-
-		btnMonitoring.addMouseListener(new MouseAdapter() {
+		btnMonitoring.addActionListener(new ActionListener() {
 			@Override
-			public void mouseReleased(MouseEvent e) {
-				toggleMonitoring((JLabel) e.getSource());
+			public void actionPerformed(ActionEvent e) {
+				toggleMonitoring(btnMonitoring);
 			}
 		});
 		toolBox.add(btnMonitoring);
@@ -494,10 +479,9 @@ public class MainWindow extends XDMFrame implements ActionListener {
 		return sp;
 	}
 
-	private void toggleMonitoring(JLabel btn) {
+	private void toggleMonitoring(MaterialSwitch btn) {
 		Config.getInstance().enableMonitoring(!Config.getInstance().isBrowserMonitoringEnabled());
-		btn.setIcon(Config.getInstance().isBrowserMonitoringEnabled() ? ImageResource.getIcon("on.png", 85, 21)
-				: ImageResource.getIcon("off.png", 85, 21));
+		btn.setSelected(Config.getInstance().isBrowserMonitoringEnabled());
 		BrowserMonitor.getInstance().updateSettingsAndStatus();
 	}
 
@@ -679,19 +663,19 @@ public class MainWindow extends XDMFrame implements ActionListener {
 		btnQueue = createDropdownBtn("LBL_ALL_QUEUE");
 
 		txtSearch = new JTextField();
-		txtSearch.setBackground(Color.WHITE);
-		txtSearch.setForeground(Color.BLACK);
+		txtSearch.setBackground(ColorResource.getDarkerBgColor());
+		txtSearch.setForeground(ColorResource.getWhite());
 		txtSearch.setBorder(null);
 		txtSearch.setName("BTN_SEARCH");
 		txtSearch.addActionListener(this);
 
 		final CustomButton btnSearch = new CustomButton();
 		btnSearch.setName("BTN_SEARCH");
-		btnSearch.setRolloverBackground(Color.WHITE);
-		btnSearch.setPressedBackground(Color.WHITE);
+		btnSearch.setRolloverBackground(ColorResource.getDarkerBgColor());
+		btnSearch.setPressedBackground(ColorResource.getDarkerBgColor());
 		btnSearch.addActionListener(this);
 		btnSearch.setPreferredSize(new Dimension(XDMUtils.getScaledInt(20), XDMUtils.getScaledInt(20)));
-		btnSearch.setBackground(Color.WHITE);
+		btnSearch.setBackground(ColorResource.getDarkerBgColor());
 		btnSearch.setIcon(ImageResource.getIcon("search.png", 18, 18));
 		btnSearch.setBorderPainted(false);
 		btnSearch.setFocusPainted(false);
@@ -700,7 +684,7 @@ public class MainWindow extends XDMFrame implements ActionListener {
 
 		Box b = Box.createHorizontalBox();
 		b.setOpaque(true);
-		b.setBackground(Color.WHITE);
+		b.setBackground(ColorResource.getDarkerBgColor());
 		b.setPreferredSize(new Dimension(scale(130), scale(20)));
 		b.setMaximumSize(new Dimension(scale(130), scale(20)));
 		txtSearch.setPreferredSize(new Dimension(scale(70), scale(20)));
@@ -902,11 +886,9 @@ public class MainWindow extends XDMFrame implements ActionListener {
 			Desktop.getDesktop().addAppEventListener((AppReopenedListener) e -> XDMApp.getInstance().showMainWindow());
 		}
 
-		showTwitterIcon = true;
-		showFBIcon = true;
+		showTwitterIcon = false;
+		showFBIcon = false;
 		showGitHubIcon = true;
-		fbUrl = XDMApp.APP_FACEBOOK_URL;
-		twitterUrl = XDMApp.APP_TWITTER_URL;
 		gitHubUrl = XDMApp.APP_HOME_URL;
 
 		JLabel lblTitle = new JLabel(XDMApp.XDM_WINDOW_TITLE);
@@ -927,7 +909,7 @@ public class MainWindow extends XDMFrame implements ActionListener {
 		bp.add(createSearchPane(), BorderLayout.EAST);
 
 		JPanel panCenter = new JPanel(new BorderLayout());
-		panCenter.setBackground(Color.WHITE);
+		panCenter.setBackground(ColorResource.getDarkestBgColor());
 		panCenter.add(bp, BorderLayout.NORTH);
 
 		JPanel pClient = new JPanel(new BorderLayout());
@@ -1308,6 +1290,7 @@ public class MainWindow extends XDMFrame implements ActionListener {
 			String lang = langMap.getProperty(cmbLang.getSelectedItem() + "");
 			if (lang != null)
 				Config.getInstance().setLanguage(lang);
+			Config.getInstance().save();
 		}
 	}
 
@@ -1334,6 +1317,10 @@ public class MainWindow extends XDMFrame implements ActionListener {
 		if (JOptionPane.showOptionDialog(null, obj, StringResource.get("MSG_THEME1"), JOptionPane.OK_CANCEL_OPTION,
 				JOptionPane.PLAIN_MESSAGE, null, null, null) == JOptionPane.OK_OPTION) {
 			Config.getInstance().setThemeMode(modes[cmbTheme.getSelectedIndex()]);
+			// Save immediately: closing the window only hides it (the app
+			// keeps running in the tray), so without this the preference
+			// would be lost unless the user does a full File > Exit.
+			Config.getInstance().save();
 		}
 	}
 

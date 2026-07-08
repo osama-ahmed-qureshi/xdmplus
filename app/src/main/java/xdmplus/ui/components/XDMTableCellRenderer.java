@@ -21,13 +21,13 @@ public class XDMTableCellRenderer implements TableCellRenderer {
 
 	public XDMTableCellRenderer() {
 		titleLbl = new JLabel("This is sample title text");
-		titleLbl.setForeground(Color.BLACK);
+		titleLbl.setForeground(ColorResource.getWhite());
 		iconLbl = new JLabel();
-		iconLbl.setForeground(Color.BLACK);
+		iconLbl.setForeground(ColorResource.getWhite());
 		statLbl = new JLabel("This is sample status text");
-		statLbl.setForeground(Color.BLACK);
+		statLbl.setForeground(ColorResource.getWhite());
 		dateLbl = new JLabel("Yesterday");
-		dateLbl.setForeground(Color.BLACK);
+		dateLbl.setForeground(ColorResource.getWhite());
 		lineLbl = new JLabel();
 
 		iconLbl.setOpaque(false);
@@ -43,17 +43,17 @@ public class XDMTableCellRenderer implements TableCellRenderer {
 		iconLbl.setIcon(iconMap.get("document.png"));
 		// iconLbl.setBorder(new EmptyBorder(5,5,5,5));
 
-		titleLbl.setBackground(Color.WHITE);
+		titleLbl.setBackground(ColorResource.getDarkestBgColor());
 		titleLbl.setFont(FontResource.getItemFont());
 		titleLbl.setOpaque(false);
 		// title.setPreferredSize(new Dimension(64, 64));
 
-		statLbl.setBackground(Color.WHITE);
+		statLbl.setBackground(ColorResource.getDarkestBgColor());
 		statLbl.setFont(FontResource.getNormalFont());
 		statLbl.setOpaque(false);
 		// status.setPreferredSize(new Dimension(64, 64));
 
-		dateLbl.setBackground(Color.WHITE);
+		dateLbl.setBackground(ColorResource.getDarkestBgColor());
 		dateLbl.setOpaque(false);
 		dateLbl.setFont(FontResource.getNormalFont());
 		// date.setPreferredSize(new Dimension(64, 64));
@@ -66,7 +66,7 @@ public class XDMTableCellRenderer implements TableCellRenderer {
 		lineLbl.setPreferredSize(new Dimension(lineLbl.getPreferredSize().width, 1));
 
 		pcell = new JPanel(new BorderLayout());
-		pcell.setBackground(Color.WHITE);
+		pcell.setBackground(ColorResource.getDarkestBgColor());
 
 		pcell.add(iconLbl, BorderLayout.WEST);
 
@@ -100,11 +100,11 @@ public class XDMTableCellRenderer implements TableCellRenderer {
 			dateLbl.setForeground(Color.WHITE);
 			statLbl.setForeground(Color.WHITE);
 		} else {
-			pcell.setBackground(Color.WHITE);
+			pcell.setBackground(ColorResource.getDarkestBgColor());
 			lineLbl.setOpaque(true);
-			titleLbl.setForeground(Color.BLACK);
-			dateLbl.setForeground(Color.BLACK);
-			statLbl.setForeground(Color.BLACK);
+			titleLbl.setForeground(ColorResource.getWhite());
+			dateLbl.setForeground(ColorResource.getWhite());
+			statLbl.setForeground(ColorResource.getWhite());
 		}
 		switch (ent.getCategory()) {
 		case XDMConstants.DOCUMENTS:
