@@ -3,19 +3,19 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>xdman</groupId>
-	<artifactId>xdman</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>xdmplus</groupId>
+	<artifactId>xdmplus</artifactId>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>xdman</name>
+	<name>xdmplus</name>
 	<url>http://maven.apache.org</url>
 
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -23,47 +23,60 @@
 		<dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
-			<version>3.6</version>
+			<version>3.11.1</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.tukaani/xz -->
 		<dependency>
 			<groupId>org.tukaani</groupId>
 			<artifactId>xz</artifactId>
-			<version>1.8</version>
+			<version>1.10</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.11.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna -->
 		<dependency>
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna</artifactId>
-			<version>5.5.0</version>
+			<version>5.15.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/net.java.dev.jna/jna-platform -->
 		<dependency>
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna-platform</artifactId>
-			<version>5.5.0</version>
+			<version>5.15.0</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+		<!-- https://mvnrepository.com/artifact/com.formdev/flatlaf -->
+		<dependency>
+			<groupId>com.formdev</groupId>
+			<artifactId>flatlaf</artifactId>
+			<version>3.5.4</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.formdev/flatlaf-extras -->
+		<dependency>
+			<groupId>com.formdev</groupId>
+			<artifactId>flatlaf-extras</artifactId>
+			<version>3.5.4</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId>
 			<version>3.8.1</version> <scope>test</scope> </dependency> -->
 	</dependencies>
 
 	<build>
-		<finalName>xdman</finalName>
+		<finalName>xdmplus</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>xdman.Main</mainClass>
+							<mainClass>xdmplus.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -85,7 +98,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M3</version>
+				<version>3.2.5</version>
 				<configuration>
 					<skipTests>true</skipTests>
 				</configuration>
