@@ -2,9 +2,6 @@
 	<h1 align="center">XDM+</h1>
 </p>
 
-<p align="center">
-	<a href="https://github.com/xdmplus/xdmplus/workflows/Java%20CI/badge.svg?branch=master"><img src="https://github.com/xdmplus/xdmplus/workflows/Java%20CI/badge.svg?branch=master" alt="Java CI" /></a>
-</p>
 
 **XDM+** is a powerful download manager, a community fork of Xtreme Download Manager (XDM) 7.2.11 originally created by Subhra Das Gupta. It increases download speeds, saves streaming video from YouTube, DailyMotion, Facebook, Vimeo, Google Video and 1000+ other websites, resumes broken/dead downloads, and schedules and converts downloads.<br>
 XDM+ seamlessly integrates with Google Chrome, Mozilla Firefox Quantum, Opera, Vivaldi and other Chromium and Firefox based browsers, to take over downloads and save streaming videos from the web. It has a built in video converter which lets you convert your downloaded videos to different formats so that you can watch them on your mobile or TV (100+ devices are supported).
