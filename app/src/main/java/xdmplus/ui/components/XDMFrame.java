@@ -451,6 +451,25 @@ public class XDMFrame extends JFrame implements ComponentListener {
 		modalPane.setSize(super.getWidth(), super.getHeight());
 		dialogPane.setSize(super.getWidth(), super.getHeight());
 		revalidate();
+		updateWindowShape();
+	}
+
+	/**
+	 * Gives the undecorated frame M3-style rounded outer corners. Maximized
+	 * windows stay square, matching normal OS window behavior.
+	 */
+	private void updateWindowShape() {
+		int w = getWidth();
+		int h = getHeight();
+		if (w <= 0 || h <= 0) {
+			return;
+		}
+		if (maximized) {
+			setShape(null);
+		} else {
+			int arc = XDMUtils.getScaledInt(16);
+			setShape(new java.awt.geom.RoundRectangle2D.Double(0, 0, w, h, arc, arc));
+		}
 	}
 
 	@Override

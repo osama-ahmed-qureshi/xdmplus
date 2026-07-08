@@ -2,19 +2,28 @@ package xdmplus.ui.res;
 
 import java.awt.*;
 
+/**
+ * Material 3 inspired dark palette. Method names are kept stable so the ~65
+ * UI call sites that read colors through this class don't need to change;
+ * only the token values below were remapped to M3 roles:
+ * darkestBgColor=surface, darkerBgColor=surface container low,
+ * darkBgColor/darkBtnColor=surface container, darkPressedColor=surface
+ * container highest (pressed/hover), titleColor=chrome/toolbar surface,
+ * selectedColor=primary, activeTabColor=primary container,
+ * whiteColor=on-surface, lightFontColor/deepFontColor=on-surface variant.
+ */
 public class ColorResource {
-	private static Color whiteColor = new Color(235, 235, 235);
-	private static Color titleColor = new Color(14, 20, 25);
-	private static Color selectedColor =  new Color(51, 181, 229);
-	private static Color activeTabColor = new Color(242, 242, 242);
-	private static Color darkBgColor = new Color(73, 73, 73);
-	private static Color darkerBgColor = new Color(50, 50, 50);
-	private static Color darkPressedColor = new Color(43, 43, 43);
-	private static Color deepFontColor = new Color(160, 160, 160);
-	private static Color lightFontColor = new Color(190, 190, 190);
-	private static Color darkBtnColor = new Color(73, 73, 73);// new Color(83,
-																// 83, 83);
-	private static Color darkestBgColor = new Color(30, 30, 30);
+	private static Color whiteColor = new Color(230, 225, 229);
+	private static Color titleColor = new Color(28, 27, 31);
+	private static Color selectedColor = new Color(41, 182, 246);
+	private static Color activeTabColor = new Color(214, 236, 250);
+	private static Color darkBgColor = new Color(48, 47, 51);
+	private static Color darkerBgColor = new Color(20, 19, 22);
+	private static Color darkPressedColor = new Color(54, 53, 58);
+	private static Color deepFontColor = new Color(143, 144, 154);
+	private static Color lightFontColor = new Color(200, 197, 202);
+	private static Color darkBtnColor = new Color(48, 47, 51);
+	private static Color darkestBgColor = new Color(15, 14, 17);
 
 	public static final Color getActiveTabColor() {
 		return activeTabColor;

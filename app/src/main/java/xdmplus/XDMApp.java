@@ -24,7 +24,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
 import xdmplus.downloaders.Downloader;
 import xdmplus.downloaders.dash.DashDownloader;
@@ -48,7 +47,7 @@ import xdmplus.ui.components.TrayHandler;
 import xdmplus.ui.components.VideoDownloadWindow;
 import xdmplus.ui.components.VideoPopup;
 import xdmplus.ui.components.VideoPopupItem;
-import xdmplus.ui.laf.XDMLookAndFeel;
+import xdmplus.ui.laf.XdmPlusTheme;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.FFmpegDownloader;
 import xdmplus.util.LinuxUtils;
@@ -222,7 +221,7 @@ public class XDMApp implements DownloadListener, DownloadWindowListener, Compara
 //			}
 //		}
 		try {
-			UIManager.setLookAndFeel(new XDMLookAndFeel());
+			XdmPlusTheme.install();
 		} catch (Exception e) {
 			Logger.log(e);
 		}
