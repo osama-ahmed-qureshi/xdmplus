@@ -538,13 +538,13 @@
         });
 
         chrome.contextMenus.create({
-            title: "Download with XDM",
+            title: "Download with XDM+",
             contexts: ["link", "video", "audio"],
             onclick: sendLinkToXDM,
         });
 
         chrome.contextMenus.create({
-            title: "Download Image with XDM",
+            title: "Download Image with XDM+",
             contexts: ["image"],
             onclick: sendImageToXDM,
         });

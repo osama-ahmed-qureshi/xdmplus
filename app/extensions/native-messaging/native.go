@@ -245,8 +245,8 @@ func watchForSettingsChange(){
 		//log.WriteString("Unble to get user home!\n")
 		panic("Unble to get user home!\n")
 	}
-	keyFile:=path.Join(userHome,".xdman","settings_updated")
-	settingsFile:=path.Join(userHome,".xdman","settings.json")
+	keyFile:=path.Join(userHome,".xdmplus","settings_updated")
+	settingsFile:=path.Join(userHome,".xdmplus","settings.json")
 
 	loadSettings(settingsFile)
 	lastChanged=time.Now()

@@ -1,7 +1,7 @@
 {
   "name": "xdmff.native_host",
-  "description": "Native messaging host for Xtreme Download Manager",
-  "path": "C:\\Users\\subhro\\Documents\\go-projects\\native-messaging\\native.exe",
+  "description": "Native messaging host for XDM+",
+  "path": "PATH_TO_YOUR_LOCAL_native-messaging_BUILD\\native.exe",
   "type": "stdio",
-  "allowed_extensions": [ "browser-mon@xdman.sourceforge.net" ]
+  "allowed_extensions": [ "browser-mon@xdmplus.app" ]
 }

@@ -34,12 +34,12 @@ func SpawnProcess() {
 
 	// log.WriteString("path: "+path+"\n")
 
-	// log.WriteString("path: "+"\""+path+"\\jre\\bin\\javaw.exe\" -jar \""+path+"\\xdman.jar\" -m"+"\n")
+	// log.WriteString("path: "+"\""+path+"\\jre\\bin\\javaw.exe\" -jar \""+path+"\\xdmplus.jar\" -m"+"\n")
 
 
 	 syscall.CreateProcess(
 		nil,//syscall.StringToUTF16Ptr(""),
-		syscall.StringToUTF16Ptr("\""+path+"\\jre\\bin\\javaw.exe\" -jar \""+path+"\\xdman.jar\" -m"),
+		syscall.StringToUTF16Ptr("\""+path+"\\jre\\bin\\javaw.exe\" -jar \""+path+"\\xdmplus.jar\" -m"),
 		nil,
 		nil,
 		false,

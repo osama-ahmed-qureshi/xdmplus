@@ -127,7 +127,7 @@ public class NativeMessagingHostInstaller {
 
 			String json = String.format(
 					"{\n" + "  \"name\": %s,\n"
-							+ "  \"description\": \"Native messaging host for Xtreme Download Manager\",\n"
+							+ "  \"description\": \"Native messaging host for XDM+\",\n"
 							+ "  \"path\": \"%s\",\n" + "  \"type\": \"stdio\",\n" + "  %s: [ %s ]\n" + "}",
 					name, nativeHostFile.getAbsolutePath().replace("\\", "\\\\"), manifestKey, extension);
 
