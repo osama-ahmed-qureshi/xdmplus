@@ -22,6 +22,7 @@ import javax.swing.table.TableCellEditor;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 
 public class VideoItemEditor extends AbstractCellEditor implements TableCellEditor {
 	/**
@@ -65,8 +66,8 @@ public class VideoItemEditor extends AbstractCellEditor implements TableCellEdit
 		p1.add(lblIcon);
 		chk = new JCheckBox("");
 		chk.setOpaque(false);
-		chk.setIcon(ImageResource.getIcon("unchecked.png",16,16));
-		chk.setSelectedIcon(ImageResource.getIcon("checked.png",16,16));
+		chk.setIcon(new MaterialCheckboxIcon(false, 16));
+		chk.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		p1.add(chk, BorderLayout.WEST);
 		p1.setBorder(new EmptyBorder(getScaledInt(12), 0, getScaledInt(5), getScaledInt(5)));
 		component.add(p1, BorderLayout.WEST);

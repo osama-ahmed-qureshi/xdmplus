@@ -41,6 +41,7 @@ import xdmplus.CredentialManager;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.Logger;
 import xdmplus.util.XDMUtils;
@@ -228,8 +229,8 @@ public class BatchPatternDialog extends JFrame implements ActionListener, Docume
 		chkUseAuth = new JCheckBox(StringResource.get("LBL_BATCH_CHK_AUTH"));
 		chkUseAuth.setName("LBL_USER_PASS");
 		chkUseAuth.setBackground(ColorResource.getDarkestBgColor());
-		chkUseAuth.setIcon(ImageResource.getIcon("unchecked.png", 16, 16));
-		chkUseAuth.setSelectedIcon(ImageResource.getIcon("checked.png", 16, 16));
+		chkUseAuth.setIcon(new MaterialCheckboxIcon(false, 16));
+		chkUseAuth.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chkUseAuth.addActionListener(this);
 		chkUseAuth.setForeground(Color.WHITE);
 		chkUseAuth.setFocusPainted(false);
@@ -366,8 +367,8 @@ public class BatchPatternDialog extends JFrame implements ActionListener, Docume
 
 	private JRadioButton createRadioButton(String name, Font font) {
 		JRadioButton chk = new JRadioButton(StringResource.get(name));
-		chk.setIcon(ImageResource.getIcon("unchecked.png", 16, 16));
-		chk.setSelectedIcon(ImageResource.getIcon("checked.png", 16, 16));
+		chk.setIcon(new MaterialCheckboxIcon(false, 16));
+		chk.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chk.setOpaque(false);
 		chk.setFocusPainted(false);
 		chk.setForeground(Color.WHITE);

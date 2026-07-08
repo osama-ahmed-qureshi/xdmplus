@@ -50,6 +50,7 @@ import xdmplus.network.http.HttpHeader;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.FormatUtilities;
 import xdmplus.util.Logger;
@@ -176,8 +177,8 @@ public class MediaDownloaderWnd extends JFrame implements ActionListener, Thumbn
 		chkAdvanced = new JCheckBox(StringResource.get("SETTINGS_ADV"));
 		chkAdvanced.setName("LBL_USER_PASS");
 		chkAdvanced.setBackground(ColorResource.getDarkestBgColor());
-		chkAdvanced.setIcon(ImageResource.getIcon("unchecked.png",16,16));
-		chkAdvanced.setSelectedIcon(ImageResource.getIcon("checked.png",16,16));
+		chkAdvanced.setIcon(new MaterialCheckboxIcon(false, 16));
+		chkAdvanced.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chkAdvanced.addActionListener(this);
 		chkAdvanced.setForeground(Color.WHITE);
 		chkAdvanced.setFocusPainted(false);
@@ -259,8 +260,8 @@ public class MediaDownloaderWnd extends JFrame implements ActionListener, Thumbn
 
 		chkSelectAll = new JCheckBox(StringResource.get("LBL_SELECT_ALL"));
 		chkSelectAll.setBackground(ColorResource.getDarkestBgColor());
-		chkSelectAll.setIcon(ImageResource.getIcon("unchecked.png",16,16));
-		chkSelectAll.setSelectedIcon(ImageResource.getIcon("checked.png",16,16));
+		chkSelectAll.setIcon(new MaterialCheckboxIcon(false, 16));
+		chkSelectAll.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chkSelectAll.addActionListener(this);
 		chkSelectAll.setForeground(Color.WHITE);
 		chkSelectAll.setFocusPainted(false);

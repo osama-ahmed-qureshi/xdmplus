@@ -31,6 +31,7 @@ import javax.swing.event.MouseInputAdapter;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 
 public class MessageBox extends JPanel implements ActionListener {
@@ -150,8 +151,8 @@ public class MessageBox extends JPanel implements ActionListener {
 		jsp.setBorder(null);
 
 		chkOption = new JCheckBox(StringResource.get("LBL_DELETE_FILE"));
-		chkOption.setIcon(ImageResource.getIcon("unchecked.png", 16, 16));
-		chkOption.setSelectedIcon(ImageResource.getIcon("checked.png", 16, 16));
+		chkOption.setIcon(new MaterialCheckboxIcon(false, 16));
+		chkOption.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chkOption.setBounds(getScaledInt(15), getScaledInt(130), getScaledInt(320), getScaledInt(30));
 		chkOption.setOpaque(false);
 		chkOption.setFocusPainted(false);

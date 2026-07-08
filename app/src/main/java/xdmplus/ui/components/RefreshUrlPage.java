@@ -28,6 +28,7 @@ import xdmplus.downloaders.metadata.HttpMetadata;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.Logger;
 import xdmplus.util.StringUtils;
@@ -117,8 +118,8 @@ public class RefreshUrlPage extends Page implements LinkRefreshCallback {
 
 		final JCheckBox chk = new JCheckBox(StringResource.get("SETTINGS_ADV"));
 		chk.setName("SETTINGS_ADV");
-		chk.setIcon(ImageResource.getIcon("unchecked.png",16,16));
-		chk.setSelectedIcon(ImageResource.getIcon("checked.png",16,16));
+		chk.setIcon(new MaterialCheckboxIcon(false, 16));
+		chk.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chk.setOpaque(false);
 		chk.setFocusPainted(false);
 		chk.setForeground(Color.WHITE);

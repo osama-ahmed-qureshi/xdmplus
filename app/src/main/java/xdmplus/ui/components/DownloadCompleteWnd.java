@@ -20,6 +20,7 @@ import xdmplus.Config;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.Logger;
 import xdmplus.util.XDMUtils;
@@ -122,8 +123,8 @@ public class DownloadCompleteWnd extends JDialog implements ActionListener {
 		chkDontShow.setFocusPainted(false);
 
 		chkDontShow.setBounds(getScaledInt(75), getScaledInt(125), getScaledInt(200), getScaledInt(20));
-		chkDontShow.setIcon(ImageResource.getIcon("unchecked.png",16,16));
-		chkDontShow.setSelectedIcon(ImageResource.getIcon("checked.png",16,16));
+		chkDontShow.setIcon(new MaterialCheckboxIcon(false, 16));
+		chkDontShow.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chkDontShow.addActionListener(this);
 
 		add(chkDontShow);

@@ -31,6 +31,11 @@ public class CustomButton extends JButton {
 		rolloverForeground = Color.WHITE;
 		pressedBackground = ColorResource.getDarkBgColor();
 		pressedForeground = Color.WHITE;
+		// Opaque buttons get a flat square pre-fill from JComponent before the
+		// LAF ever paints its own rounded background, which hides the corner
+		// rounding. Turning this off lets FlatLaf's rounded fill show through.
+		setOpaque(false);
+		setContentAreaFilled(true);
 	}
 
 	@Override

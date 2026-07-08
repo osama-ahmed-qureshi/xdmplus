@@ -58,6 +58,15 @@ public class Config {
 	private String queueIdFilter;
 	private boolean showVideoListOnlyInBrowser;
 	private int zoomLevelIndex = 0;
+	private String themeMode = "system"; // "system", "light" or "dark"
+
+	public String getThemeMode() {
+		return themeMode;
+	}
+
+	public void setThemeMode(String themeMode) {
+		this.themeMode = themeMode;
+	}
 
 	public void addConfigListener(MonitoringListener listener) {
 		listeners.add(listener);
@@ -143,6 +152,7 @@ public class Config {
 			}
 			fw.write("showVideoListOnlyInBrowser:" + this.showVideoListOnlyInBrowser + newLine);
 			fw.write("zoomLevelIndex:" + this.zoomLevelIndex + newLine);
+			fw.write("themeMode:" + this.themeMode + newLine);
 
 		} catch (Exception e) {
 		}
@@ -276,6 +286,8 @@ public class Config {
 					this.showVideoListOnlyInBrowser = "true".equals(val);
 				} else if (key.equals("zoomLevelIndex")) {
 					this.zoomLevelIndex = Integer.parseInt(val);
+				} else if (key.equals("themeMode")) {
+					this.themeMode = val;
 				}
 			}
 		} catch (Exception e) {

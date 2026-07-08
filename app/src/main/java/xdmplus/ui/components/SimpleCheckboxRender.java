@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 
 import java.awt.*;
 import static xdmplus.util.XDMUtils.getScaledInt;
@@ -23,8 +24,8 @@ public class SimpleCheckboxRender extends JCheckBox implements ListCellRenderer<
 		setOpaque(true);
 		setPreferredSize(new Dimension(getScaledInt(100), getScaledInt(30)));
 		setBorder(new EmptyBorder(getScaledInt(0), getScaledInt(5), 0, 0));
-		setIcon(ImageResource.getIcon("unchecked.png",16,16));
-		setSelectedIcon(ImageResource.getIcon("checked.png",16,16));
+		setIcon(new MaterialCheckboxIcon(false, 16));
+		setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 	}
 
 	@Override

@@ -330,6 +330,8 @@ public class MainWindow extends XDMFrame implements ActionListener {
 				XDMUtils.browseURL(XDMApp.APP_UPDATE_CHK_URL + XDMApp.APP_VERSION);
 			} else if ("MENU_LANG".equals(name)) {
 				showLanguageDlg();
+			} else if ("MENU_THEME".equals(name)) {
+				showThemeDlg();
 			} else if ("MENU_BATCH_DOWNLOAD".equals(name)) {
 				showBatchPatternDialog();
 			} else if ("MENU_CLIP_ADD_MENU".equals(name)) {
@@ -553,6 +555,7 @@ public class MainWindow extends XDMFrame implements ActionListener {
 		// addMenuItem("MENU_FORCE_ASSEMBLE", tools);
 		addMenuItem("MENU_SPEED_LIMITER", tools);
 		addMenuItem("MENU_LANG", tools);
+		addMenuItem("MENU_THEME", tools);
 		addMenuItem("MENU_MEDIA_CONVERTER", tools);
 		addMenuItem("LBL_OPTIMIZE_NETWORK", tools);
 		addMenuItem("MENU_BROWSER_INT", tools);
@@ -1305,6 +1308,32 @@ public class MainWindow extends XDMFrame implements ActionListener {
 			String lang = langMap.getProperty(cmbLang.getSelectedItem() + "");
 			if (lang != null)
 				Config.getInstance().setLanguage(lang);
+		}
+	}
+
+	private void showThemeDlg() {
+		String[] modes = { "system", "light", "dark" };
+		String[] labels = { StringResource.get("THEME_SYSTEM"), StringResource.get("THEME_LIGHT"),
+				StringResource.get("THEME_DARK") };
+
+		int index = 0;
+		for (int i = 0; i < modes.length; i++) {
+			if (modes[i].equals(Config.getInstance().getThemeMode())) {
+				index = i;
+			}
+		}
+
+		JComboBox<String> cmbTheme = new JComboBox<>(labels);
+		cmbTheme.setSelectedIndex(index);
+
+		Object[] obj = new Object[3];
+		obj[0] = StringResource.get("MSG_THEME1");
+		obj[1] = cmbTheme;
+		obj[2] = StringResource.get("MSG_LANG2");
+
+		if (JOptionPane.showOptionDialog(null, obj, StringResource.get("MSG_THEME1"), JOptionPane.OK_CANCEL_OPTION,
+				JOptionPane.PLAIN_MESSAGE, null, null, null) == JOptionPane.OK_OPTION) {
+			Config.getInstance().setThemeMode(modes[cmbTheme.getSelectedIndex()]);
 		}
 	}
 

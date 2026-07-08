@@ -61,6 +61,7 @@ import xdmplus.monitoring.BrowserMonitor;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.BrowserLauncher;
 import xdmplus.util.DateTimeUtils;
@@ -160,7 +161,9 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 	public SettingsPage() {
 		setOpaque(false);
 		setLayout(null);
-		bgColor = new Color(0, 0, 0, Config.getInstance().isNoTransparency() ? 255 : 200);
+		Color pageBase = ColorResource.getDarkestBgColor();
+		bgColor = new Color(pageBase.getRed(), pageBase.getGreen(), pageBase.getBlue(),
+				Config.getInstance().isNoTransparency() ? 255 : 235);
 		MouseInputAdapter ma = new MouseInputAdapter() {
 		};
 
@@ -293,7 +296,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblMonitorHeader = new JLabel(StringResource.get("SETTINGS_MONITORING"));
-		lblMonitorHeader.setForeground(Color.WHITE);
+		lblMonitorHeader.setForeground(ColorResource.getWhite());
 		lblMonitorHeader.setFont(FontResource.getItemFont());
 		lblMonitorHeader.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblMonitorHeader);
@@ -306,7 +309,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		lblMonitoringTitle.setWrapStyleWord(true);
 		lblMonitoringTitle.setLineWrap(true);
 		lblMonitoringTitle.setEditable(false);
-		lblMonitoringTitle.setForeground(Color.WHITE);
+		lblMonitoringTitle.setForeground(ColorResource.getWhite());
 		lblMonitoringTitle.setText(StringResource.get("HINT_BROWSER_MON"));
 		lblMonitoringTitle.setFont(FontResource.getNormalFont());
 		lblMonitoringTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
@@ -323,7 +326,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lblGenHeader = new JLabel(StringResource.get("SETTINGS_GENERAL"));
-		lblGenHeader.setForeground(Color.WHITE);
+		lblGenHeader.setForeground(ColorResource.getWhite());
 		lblGenHeader.setFont(FontResource.getItemFont());
 		lblGenHeader.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblGenHeader);
@@ -370,7 +373,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblMaxTitle = new JLabel(StringResource.get("MSG_MAX_DOWNLOAD"));
-		lblMaxTitle.setForeground(Color.WHITE);
+		lblMaxTitle.setForeground(ColorResource.getWhite());
 		lblMaxTitle.setFont(FontResource.getNormalFont());
 		lblMaxTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblMaxTitle);
@@ -388,7 +391,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblZoomTitle = new JLabel(StringResource.get("LBL_ZOOM_LEVEL"));
-		lblZoomTitle.setForeground(Color.WHITE);
+		lblZoomTitle.setForeground(ColorResource.getWhite());
 		lblZoomTitle.setFont(FontResource.getNormalFont());
 		lblZoomTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblZoomTitle);
@@ -405,7 +408,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		// h = 30;
 		// JLabel lblDupTitle = new JLabel(StringResource.get("SHOW_DUP_ACT"));
-		// lblDupTitle.setForeground(Color.WHITE);
+		// lblDupTitle.setForeground(ColorResource.getWhite());
 		// lblDupTitle.setFont(FontResource.getNormalFont());
 		// lblDupTitle.setBounds(15, y, 350 - 30, h);
 		// panel.add(lblDupTitle);
@@ -436,7 +439,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblFolderTitle = new JLabel(StringResource.get("SETTINGS_FOLDER"));
-		lblFolderTitle.setForeground(Color.WHITE);
+		lblFolderTitle.setForeground(ColorResource.getWhite());
 		lblFolderTitle.setFont(FontResource.getNormalFont());
 		lblFolderTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblFolderTitle);
@@ -461,7 +464,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtDefFolder.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(110), h);
 		txtDefFolder.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtDefFolder.setEditable(false);
-		txtDefFolder.setForeground(Color.WHITE);
+		txtDefFolder.setForeground(ColorResource.getWhite());
 		txtDefFolder.setOpaque(false);
 		panel.add(txtDefFolder);
 		JButton btnBrowseFolder = createButton2("SETTINGS_FOLDER_CHANGE");
@@ -477,7 +480,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblTempFolderTitle = new JLabel(StringResource.get("LBL_TEMP_FOLDER"));
-		lblTempFolderTitle.setForeground(Color.WHITE);
+		lblTempFolderTitle.setForeground(ColorResource.getWhite());
 		lblTempFolderTitle.setFont(FontResource.getNormalFont());
 		lblTempFolderTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblTempFolderTitle);
@@ -488,7 +491,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtTempFolder.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(110), h);
 		txtTempFolder.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtTempFolder.setEditable(false);
-		txtTempFolder.setForeground(Color.WHITE);
+		txtTempFolder.setForeground(ColorResource.getWhite());
 		txtTempFolder.setOpaque(false);
 		panel.add(txtTempFolder);
 		JButton btnBrowseFolder2 = createButton2("SETTINGS_FOLDER_CHANGE");
@@ -507,7 +510,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblNetHeader = new JLabel(StringResource.get("SETTINGS_NETWORK"));
-		lblNetHeader.setForeground(Color.WHITE);
+		lblNetHeader.setForeground(ColorResource.getWhite());
 		lblNetHeader.setFont(FontResource.getItemFont());
 		lblNetHeader.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblNetHeader);
@@ -519,7 +522,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		lblNetworkTitle.setWrapStyleWord(true);
 		lblNetworkTitle.setLineWrap(true);
 		lblNetworkTitle.setEditable(false);
-		lblNetworkTitle.setForeground(Color.WHITE);
+		lblNetworkTitle.setForeground(ColorResource.getWhite());
 		lblNetworkTitle.setText(StringResource.get("HINT_NETWORK"));
 		lblNetworkTitle.setFont(FontResource.getNormalFont());
 		lblNetworkTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
@@ -537,7 +540,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblSchHeader = new JLabel(StringResource.get("SETTINGS_SCHEDULER"));
-		lblSchHeader.setForeground(Color.WHITE);
+		lblSchHeader.setForeground(ColorResource.getWhite());
 		lblSchHeader.setFont(FontResource.getItemFont());
 		lblSchHeader.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblSchHeader);
@@ -549,7 +552,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		lblScheduleTitle.setWrapStyleWord(true);
 		lblScheduleTitle.setLineWrap(true);
 		lblScheduleTitle.setEditable(false);
-		lblScheduleTitle.setForeground(Color.WHITE);
+		lblScheduleTitle.setForeground(ColorResource.getWhite());
 		lblScheduleTitle.setText(StringResource.get("HINT_SCHEDULER"));
 		lblScheduleTitle.setFont(FontResource.getNormalFont());
 		lblScheduleTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
@@ -567,7 +570,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblPwdHeader = new JLabel(StringResource.get("SETTINGS_CRED"));
-		lblPwdHeader.setForeground(Color.WHITE);
+		lblPwdHeader.setForeground(ColorResource.getWhite());
 		lblPwdHeader.setFont(FontResource.getItemFont());
 		lblPwdHeader.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblPwdHeader);
@@ -579,7 +582,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		lblCredTitle.setWrapStyleWord(true);
 		lblCredTitle.setLineWrap(true);
 		lblCredTitle.setEditable(false);
-		lblCredTitle.setForeground(Color.WHITE);
+		lblCredTitle.setForeground(ColorResource.getWhite());
 		lblCredTitle.setText(StringResource.get("HINT_PASSWORD"));
 		lblCredTitle.setFont(FontResource.getNormalFont());
 		lblCredTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
@@ -597,7 +600,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lblAdvHeader = new JLabel(StringResource.get("SETTINGS_ADV"));
-		lblAdvHeader.setForeground(Color.WHITE);
+		lblAdvHeader.setForeground(ColorResource.getWhite());
 		lblAdvHeader.setFont(FontResource.getItemFont());
 		lblAdvHeader.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblAdvHeader);
@@ -609,7 +612,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		lblAdvTitle.setWrapStyleWord(true);
 		lblAdvTitle.setLineWrap(true);
 		lblAdvTitle.setEditable(false);
-		lblAdvTitle.setForeground(Color.WHITE);
+		lblAdvTitle.setForeground(ColorResource.getWhite());
 		lblAdvTitle.setText(StringResource.get("HINT_ADV"));
 		lblAdvTitle.setFont(FontResource.getNormalFont());
 		lblAdvTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
@@ -633,7 +636,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		btn.setBackground(ColorResource.getDarkBtnColor());
 		btn.setBorderPainted(false);
 		btn.setFocusPainted(false);
-		btn.setForeground(Color.WHITE);
+		btn.setForeground(ColorResource.getWhite());
 		btn.setFont(FontResource.getNormalFont());
 		Dimension d = btn.getPreferredSize();
 		btn.setBounds(x, y, d.width, d.height);
@@ -646,7 +649,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		btn.setBackground(ColorResource.getDarkBtnColor());
 		btn.setBorderPainted(false);
 		btn.setFocusPainted(false);
-		btn.setForeground(Color.WHITE);
+		btn.setForeground(ColorResource.getWhite());
 		btn.setFont(FontResource.getNormalFont());
 		btn.addActionListener(this);
 		return btn;
@@ -655,11 +658,11 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 	private JCheckBox createCheckBox(String name, Font font) {
 		JCheckBox chk = new JCheckBox(StringResource.get(name));
 		chk.setName(name);
-		chk.setIcon(ImageResource.getIcon("unchecked.png", 16, 16));
-		chk.setSelectedIcon(ImageResource.getIcon("checked.png", 16, 16));
+		chk.setIcon(new MaterialCheckboxIcon(false, 16));
+		chk.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chk.setOpaque(false);
 		chk.setFocusPainted(false);
-		chk.setForeground(Color.WHITE);
+		chk.setForeground(ColorResource.getWhite());
 		chk.setFont(font);
 		return chk;
 	}
@@ -1169,7 +1172,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		textArea.setWrapStyleWord(true);
 		textArea.setLineWrap(true);
 		textArea.setEditable(false);
-		textArea.setForeground(Color.WHITE);
+		textArea.setForeground(ColorResource.getWhite());
 		textArea.setText(StringResource.get(name));
 		textArea.setFont(font);
 		return textArea;
@@ -1291,7 +1294,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 		labelMoz.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		labelMoz.setFont(font.deriveFont(attributes));
-		labelMoz.setForeground(Color.WHITE);
+		labelMoz.setForeground(ColorResource.getWhite());
 		p.add(labelMoz);
 		y += h;
 
@@ -1306,7 +1309,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		});
 		labelCr.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		labelCr.setFont(font.deriveFont(attributes));
-		labelCr.setForeground(Color.WHITE);
+		labelCr.setForeground(ColorResource.getWhite());
 		p.add(labelCr);
 		y += h;
 		y += getScaledInt(40);
@@ -1323,7 +1326,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtFileTyp.setOpaque(false);
 		txtFileTyp.setWrapStyleWord(true);
 		txtFileTyp.setLineWrap(true);
-		txtFileTyp.setForeground(Color.WHITE);
+		txtFileTyp.setForeground(ColorResource.getWhite());
 		txtFileTyp.setFont(FontResource.getNormalFont());
 		txtFileTyp.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(40), h);
 		p.add(txtFileTyp);
@@ -1358,7 +1361,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtVidType.setBorder(new LineBorder(ColorResource.getDarkBgColor()));
 		txtVidType.setWrapStyleWord(true);
 		txtVidType.setLineWrap(true);
-		txtVidType.setForeground(Color.WHITE);
+		txtVidType.setForeground(ColorResource.getWhite());
 		txtVidType.setFont(FontResource.getNormalFont());
 		txtVidType.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(40), h);
 		p.add(txtVidType);
@@ -1375,7 +1378,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(30);
 
 		JLabel lblMinVidSize = new JLabel(StringResource.get("LBL_MIN_VIDEO_SIZE"));
-		lblMinVidSize.setForeground(Color.WHITE);
+		lblMinVidSize.setForeground(ColorResource.getWhite());
 		lblMinVidSize.setFont(FontResource.getNormalFont());
 		lblMinVidSize.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lblMinVidSize);
@@ -1404,7 +1407,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtBlockedHosts.setBorder(new LineBorder(ColorResource.getDarkBgColor()));
 		txtBlockedHosts.setWrapStyleWord(true);
 		txtBlockedHosts.setLineWrap(true);
-		txtBlockedHosts.setForeground(Color.WHITE);
+		txtBlockedHosts.setForeground(ColorResource.getWhite());
 		txtBlockedHosts.setFont(FontResource.getNormalFont());
 		txtBlockedHosts.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(40), h);
 		p.add(txtBlockedHosts);
@@ -1451,7 +1454,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl1 = new JLabel(StringResource.get("DESC_NET"));
-		lbl1.setForeground(Color.WHITE);
+		lbl1.setForeground(ColorResource.getWhite());
 		lbl1.setFont(FontResource.getItemFont());
 		lbl1.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl1);
@@ -1460,7 +1463,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(20);
 		h = getScaledInt(25);
 		JLabel lbl2 = new JLabel(StringResource.get("DESC_NET1"));
-		lbl2.setForeground(Color.WHITE);
+		lbl2.setForeground(ColorResource.getWhite());
 		lbl2.setFont(FontResource.getNormalFont());
 		lbl2.setBounds(getScaledInt(15), y, getScaledInt(200), h);
 		p.add(lbl2);
@@ -1477,7 +1480,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(25);
 		JLabel lbl3 = new JLabel(StringResource.get("DESC_NET2"));
-		lbl3.setForeground(Color.WHITE);
+		lbl3.setForeground(ColorResource.getWhite());
 		lbl3.setFont(FontResource.getNormalFont());
 		lbl3.setBounds(getScaledInt(15), y, getScaledInt(200), h);
 		p.add(lbl3);
@@ -1496,7 +1499,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		y += getScaledInt(10);
 		h = getScaledInt(25);
 		JLabel lbl4 = new JLabel(StringResource.get("DESC_NET3"));
-		lbl4.setForeground(Color.WHITE);
+		lbl4.setForeground(ColorResource.getWhite());
 		lbl4.setFont(FontResource.getNormalFont());
 		lbl4.setBounds(getScaledInt(15), y, getScaledInt(200), h);
 		p.add(lbl4);
@@ -1516,7 +1519,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		// h = getScaledInt(30);
 		// JLabel lbl51 = new JLabel(StringResource.get("SPEED_LIMIT_TITLE"));
-		// lbl51.setForeground(Color.WHITE);
+		// lbl51.setForeground(ColorResource.getWhite());
 		// lbl51.setFont(FontResource.getItemFont());
 		// lbl51.setBounds(getScaledInt(15), y, getScaledInt(350) -
 		// getScaledInt(30),
@@ -1526,7 +1529,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		//
 		// h = getScaledInt(30);
 		// JLabel lbl71 = new JLabel(StringResource.get("MSG_SPEED_LIMIT"));
-		// lbl71.setForeground(Color.WHITE);
+		// lbl71.setForeground(ColorResource.getWhite());
 		// lbl71.setFont(FontResource.getNormalFont());
 		// lbl71.setBounds(getScaledInt(15), y, getScaledInt(350) -
 		// getScaledInt(30),
@@ -1542,7 +1545,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		// LineBorder(ColorResource.getDarkBtnColor()));
 		// txtSpeedLimit.setEditable(true);
 		// txtSpeedLimit.setCaretColor(ColorResource.getActiveTabColor());
-		// txtSpeedLimit.setForeground(Color.WHITE);
+		// txtSpeedLimit.setForeground(ColorResource.getWhite());
 		// txtSpeedLimit.setOpaque(false);
 		// p.add(txtSpeedLimit);
 		// y += h;
@@ -1551,7 +1554,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl5 = new JLabel(StringResource.get("DESC_NET4"));
-		lbl5.setForeground(Color.WHITE);
+		lbl5.setForeground(ColorResource.getWhite());
 		lbl5.setFont(FontResource.getItemFont());
 		lbl5.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl5);
@@ -1570,7 +1573,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtPACUrl.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(10), h);
 		txtPACUrl.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtPACUrl.setEditable(true);
-		txtPACUrl.setForeground(Color.WHITE);
+		txtPACUrl.setForeground(ColorResource.getWhite());
 		txtPACUrl.setCaretColor(ColorResource.getActiveTabColor());
 		txtPACUrl.setOpaque(false);
 		p.add(txtPACUrl);
@@ -1590,7 +1593,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtProxyHostnPort.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtProxyHostnPort.setEditable(true);
 		txtProxyHostnPort.setCaretColor(ColorResource.getActiveTabColor());
-		txtProxyHostnPort.setForeground(Color.WHITE);
+		txtProxyHostnPort.setForeground(ColorResource.getWhite());
 		txtProxyHostnPort.setOpaque(false);
 		p.add(txtProxyHostnPort);
 		y += h;
@@ -1608,7 +1611,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtSocksHostnPort.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtSocksHostnPort.setEditable(true);
 		txtSocksHostnPort.setCaretColor(ColorResource.getActiveTabColor());
-		txtSocksHostnPort.setForeground(Color.WHITE);
+		txtSocksHostnPort.setForeground(ColorResource.getWhite());
 		txtSocksHostnPort.setOpaque(false);
 		p.add(txtSocksHostnPort);
 		y += h;
@@ -1616,7 +1619,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl6 = new JLabel(StringResource.get("DESC_NET7"));
-		lbl6.setForeground(Color.WHITE);
+		lbl6.setForeground(ColorResource.getWhite());
 		lbl6.setFont(FontResource.getNormalFont());
 		lbl6.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl6);
@@ -1628,14 +1631,14 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtProxyUser.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtProxyUser.setCaretColor(ColorResource.getActiveTabColor());
 		txtProxyUser.setEditable(true);
-		txtProxyUser.setForeground(Color.WHITE);
+		txtProxyUser.setForeground(ColorResource.getWhite());
 		txtProxyUser.setOpaque(false);
 		p.add(txtProxyUser);
 		y += h;
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lbl7 = new JLabel(StringResource.get("DESC_NET8"));
-		lbl7.setForeground(Color.WHITE);
+		lbl7.setForeground(ColorResource.getWhite());
 		lbl7.setFont(FontResource.getNormalFont());
 		lbl7.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl7);
@@ -1647,7 +1650,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtProxyPass.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtProxyPass.setCaretColor(ColorResource.getActiveTabColor());
 		txtProxyPass.setEditable(true);
-		txtProxyPass.setForeground(Color.WHITE);
+		txtProxyPass.setForeground(ColorResource.getWhite());
 		txtProxyPass.setOpaque(false);
 		p.add(txtProxyPass);
 		y += h;
@@ -1716,7 +1719,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl64 = new JLabel(StringResource.get("DESC_HOST"));
-		lbl64.setForeground(Color.WHITE);
+		lbl64.setForeground(ColorResource.getWhite());
 		lbl64.setFont(FontResource.getNormalFont());
 		lbl64.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl64);
@@ -1726,7 +1729,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtCredHostName = new JTextField();
 		txtCredHostName.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(10), h);
 		txtCredHostName.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
-		txtCredHostName.setForeground(Color.WHITE);
+		txtCredHostName.setForeground(ColorResource.getWhite());
 		txtCredHostName.setOpaque(false);
 		p.add(txtCredHostName);
 		y += h;
@@ -1734,7 +1737,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl6 = new JLabel(StringResource.get("DESC_USER"));
-		lbl6.setForeground(Color.WHITE);
+		lbl6.setForeground(ColorResource.getWhite());
 		lbl6.setFont(FontResource.getNormalFont());
 		lbl6.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl6);
@@ -1744,14 +1747,14 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtUserName = new JTextField();
 		txtUserName.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(10), h);
 		txtUserName.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
-		txtUserName.setForeground(Color.WHITE);
+		txtUserName.setForeground(ColorResource.getWhite());
 		txtUserName.setOpaque(false);
 		p.add(txtUserName);
 		y += h;
 		y += getScaledInt(10);
 		h = getScaledInt(30);
 		JLabel lbl7 = new JLabel(StringResource.get("DESC_PASS"));
-		lbl7.setForeground(Color.WHITE);
+		lbl7.setForeground(ColorResource.getWhite());
 		lbl7.setFont(FontResource.getNormalFont());
 		lbl7.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl7);
@@ -1761,7 +1764,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtPassword = new JPasswordField();
 		txtPassword.setBounds(getScaledInt(15), y, getScaledInt(320) - getScaledInt(10), h);
 		txtPassword.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
-		txtPassword.setForeground(Color.WHITE);
+		txtPassword.setForeground(ColorResource.getWhite());
 		txtPassword.setOpaque(false);
 		p.add(txtPassword);
 		y += h;
@@ -1788,7 +1791,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl67 = new JLabel(StringResource.get("Q_LIST_DESC"));
-		lbl67.setForeground(Color.WHITE);
+		lbl67.setForeground(ColorResource.getWhite());
 		lbl67.setFont(FontResource.getNormalFont());
 		lbl67.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl67);
@@ -1835,7 +1838,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl6 = new JLabel(StringResource.get("MSG_QNAME"));
-		lbl6.setForeground(Color.WHITE);
+		lbl6.setForeground(ColorResource.getWhite());
 		lbl6.setFont(FontResource.getNormalFont());
 		lbl6.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl6);
@@ -1847,7 +1850,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtQueueName.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(10), h);
 		txtQueueName.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
 		txtQueueName.setEditable(true);
-		txtQueueName.setForeground(Color.WHITE);
+		txtQueueName.setForeground(ColorResource.getWhite());
 		txtQueueName.setOpaque(false);
 		p.add(txtQueueName);
 		y += h;
@@ -1855,7 +1858,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl69 = new JLabel(StringResource.get("Q_LIST_FILES"));
-		lbl69.setForeground(Color.WHITE);
+		lbl69.setForeground(ColorResource.getWhite());
 		lbl69.setFont(FontResource.getNormalFont());
 		lbl69.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl69);
@@ -1902,7 +1905,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl68 = new JLabel(StringResource.get("Q_SCHEDULE_TXT"));
-		lbl68.setForeground(Color.WHITE);
+		lbl68.setForeground(ColorResource.getWhite());
 		lbl68.setFont(FontResource.getNormalFont());
 		lbl68.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl68);
@@ -1917,7 +1920,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		spinnerDateModel1 = new SpinnerDateModel(new Date(), null, null, Calendar.HOUR_OF_DAY);
 		spStartTime = new JSpinner(spinnerDateModel1);
-		spStartTime.setForeground(Color.WHITE);
+		spStartTime.setForeground(ColorResource.getWhite());
 		spStartTime.setBackground(ColorResource.getDarkBgColor());
 		spStartTime.setBorder(null);
 		JSpinner.DateEditor ed1 = new JSpinner.DateEditor(spStartTime, "hh:mm a");
@@ -1925,7 +1928,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		for (int i = 0; i < n; i++) {
 			Component c = ed1.getComponent(i);
 			if (c instanceof JTextField) {
-				c.setForeground(Color.WHITE);
+				c.setForeground(ColorResource.getWhite());
 				c.setBackground(ColorResource.getDarkBtnColor());
 			}
 		}
@@ -1948,7 +1951,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		for (int i = 0; i < n; i++) {
 			Component c = ed2.getComponent(i);
 			if (c instanceof JTextField) {
-				c.setForeground(Color.WHITE);
+				c.setForeground(ColorResource.getWhite());
 				c.setBackground(ColorResource.getDarkBtnColor());
 			}
 		}
@@ -1982,7 +1985,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		for (int i = 0; i < n; i++) {
 			Component c = ed3.getComponent(i);
 			if (c instanceof JTextField) {
-				c.setForeground(Color.WHITE);
+				c.setForeground(ColorResource.getWhite());
 				c.setBackground(ColorResource.getDarkBtnColor());
 			}
 		}
@@ -2054,7 +2057,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtCustomCmd = new JTextField();
 		txtCustomCmd.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(10), h);
 		txtCustomCmd.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
-		txtCustomCmd.setForeground(Color.WHITE);
+		txtCustomCmd.setForeground(ColorResource.getWhite());
 		txtCustomCmd.setOpaque(false);
 		p.add(txtCustomCmd);
 		y += h;
@@ -2069,7 +2072,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl12 = new JLabel(StringResource.get("ANTIVIR_CMD"));
-		lbl12.setForeground(Color.WHITE);
+		lbl12.setForeground(ColorResource.getWhite());
 		lbl12.setFont(FontResource.getNormalFont());
 		lbl12.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl12);
@@ -2080,7 +2083,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtAntivirCmd.setBounds(getScaledInt(15), y,
 				getScaledInt(350) - getScaledInt(30) - getScaledInt(10) - getScaledInt(100), h);
 		txtAntivirCmd.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
-		txtAntivirCmd.setForeground(Color.WHITE);
+		txtAntivirCmd.setForeground(ColorResource.getWhite());
 		txtAntivirCmd.setOpaque(false);
 		p.add(txtAntivirCmd);
 		JButton btnBrowse = createButton2("BTN_BROWSE");
@@ -2095,7 +2098,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 		h = getScaledInt(30);
 		JLabel lbl1 = new JLabel(StringResource.get("ANTIVIR_ARGS"));
-		lbl1.setForeground(Color.WHITE);
+		lbl1.setForeground(ColorResource.getWhite());
 		lbl1.setFont(FontResource.getNormalFont());
 		lbl1.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		p.add(lbl1);
@@ -2105,7 +2108,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 		txtAntivirArgs = new JTextField();
 		txtAntivirArgs.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30) - getScaledInt(10), h);
 		txtAntivirArgs.setBorder(new LineBorder(ColorResource.getDarkBtnColor()));
-		txtAntivirArgs.setForeground(Color.WHITE);
+		txtAntivirArgs.setForeground(ColorResource.getWhite());
 		txtAntivirArgs.setOpaque(false);
 		p.add(txtAntivirArgs);
 		y += h;
@@ -2170,11 +2173,11 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 
 	private JRadioButton createRadioButton(String name, Font font) {
 		JRadioButton chk = new JRadioButton(StringResource.get(name));
-		chk.setIcon(ImageResource.getIcon("unchecked.png", 16, 16));
-		chk.setSelectedIcon(ImageResource.getIcon("checked.png", 16, 16));
+		chk.setIcon(new MaterialCheckboxIcon(false, 16));
+		chk.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chk.setOpaque(false);
 		chk.setFocusPainted(false);
-		chk.setForeground(Color.WHITE);
+		chk.setForeground(ColorResource.getWhite());
 		chk.setFont(font);
 		return chk;
 	}
@@ -2392,7 +2395,7 @@ public class SettingsPage extends JPanel implements ActionListener, ListSelectio
 			JMenuItem item = new JMenuItem(tq.getName());
 			item.setName("Q_MOVE_TO:" + tq.getQueueId());
 			item.addActionListener(this);
-			item.setForeground(Color.WHITE);
+			item.setForeground(ColorResource.getWhite());
 			item.setFont(FontResource.getNormalFont());
 			popupMenu.add(item);
 		}

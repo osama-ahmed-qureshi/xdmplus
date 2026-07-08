@@ -39,6 +39,7 @@ import xdmplus.downloaders.metadata.HttpMetadata;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.Logger;
 import xdmplus.util.StringUtils;
@@ -325,8 +326,8 @@ public class BatchDownloadWnd extends JFrame implements ActionListener {
 		chkStartQueue.setFocusPainted(false);
 
 		chkStartQueue.setBounds(getScaledInt(15), y, getScaledInt(200), getScaledInt(20));
-		chkStartQueue.setIcon(ImageResource.getIcon("unchecked.png", 16, 16));
-		chkStartQueue.setSelectedIcon(ImageResource.getIcon("checked.png", 16, 16));
+		chkStartQueue.setIcon(new MaterialCheckboxIcon(false, 16));
+		chkStartQueue.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chkStartQueue.addActionListener(this);
 
 		add(chkStartQueue);

@@ -41,7 +41,9 @@ public class Page extends JPanel {
 		this.title = title;
 		this.width = width;
 		this.parent = parent;
-		bgColor = new Color(0, 0, 0, Config.getInstance().isNoTransparency()?255:200);
+		Color base = ColorResource.getDarkestBgColor();
+		bgColor = new Color(base.getRed(), base.getGreen(), base.getBlue(),
+				Config.getInstance().isNoTransparency() ? 255 : 235);
 		MouseInputAdapter ma = new MouseInputAdapter() {
 		};
 

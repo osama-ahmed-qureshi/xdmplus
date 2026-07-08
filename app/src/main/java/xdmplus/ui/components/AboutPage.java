@@ -2,7 +2,6 @@ package xdmplus.ui.components;
 
 import static xdmplus.util.XDMUtils.getScaledInt;
 
-import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JLabel;
@@ -10,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import xdmplus.XDMApp;
+import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.StringResource;
 
@@ -31,7 +31,7 @@ public class AboutPage extends Page {
 
 		JLabel lblTitle = new JLabel(StringResource.get("FULL_NAME"));
 		lblTitle.setFont(FontResource.getBiggerFont());
-		lblTitle.setForeground(Color.WHITE);
+		lblTitle.setForeground(ColorResource.getWhite());
 		lblTitle.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);
 		panel.add(lblTitle);
 
@@ -39,7 +39,7 @@ public class AboutPage extends Page {
 		y += getScaledInt(20);
 
 		String details = String.format(
-				"Version %s with Java %s on %s\n\nXDM+ is a community fork of Xtreme Download Manager, originally created by Subhra Das Gupta.\n\n%s\nCopyright (C) 2026, All rights reserved.",
+				"Version %s with Java %s on %s\n\nXDM+ is a fork of Xtreme Download Manager, created by Osama Ahmed Qureshi.\n\n%s\nCopyright (C) 2026, All rights reserved.",
 				XDMApp.APP_VERSION, (System.getProperty("java.vendor") + " " + System.getProperty("java.version")),
 				System.getProperty("os.name"), XDMApp.APP_HOME_URL);
 
@@ -49,7 +49,7 @@ public class AboutPage extends Page {
 		lblDetails.setWrapStyleWord(true);
 		lblDetails.setLineWrap(true);
 		lblDetails.setEditable(false);
-		lblDetails.setForeground(Color.WHITE);
+		lblDetails.setForeground(ColorResource.getWhite());
 		lblDetails.setText(details);
 		lblDetails.setFont(FontResource.getBigFont());
 		lblDetails.setBounds(getScaledInt(15), y, getScaledInt(350) - getScaledInt(30), h);

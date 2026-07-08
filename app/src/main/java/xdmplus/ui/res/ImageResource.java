@@ -1,5 +1,6 @@
 package xdmplus.ui.res;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -54,6 +55,7 @@ public class ImageResource {
 	public static Icon getIcon(String icon, int width, int height) {
 		try {
 			BufferedImage image = ImageIO.read(ImageResource.class.getResource("/icons/xxhdpi/" + icon));
+			image = retintIfMonochrome(image);
 			BufferedImage scaledImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
 			//System.out.println("------*** " + image.getWidth() + " " + width);
@@ -94,6 +96,61 @@ public class ImageResource {
 			e.printStackTrace();
 			return new ImageIcon();
 		}
+	}
+
+	/**
+	 * Many of this app's toolbar/chrome icons are flat white/light silhouettes
+	 * designed for a dark background. In light theme those become invisible,
+	 * so single-color, light-toned icons are retinted at load time to the
+	 * theme's current on-surface color. Multi-color artwork (category icons,
+	 * brand logos, thumbnails) is detected and left untouched.
+	 */
+	private static BufferedImage retintIfMonochrome(BufferedImage src) {
+		if (ColorResource.isDark()) {
+			return src;
+		}
+		int w = src.getWidth();
+		int h = src.getHeight();
+		int refR = -1, refG = -1, refB = -1;
+		boolean monochrome = true;
+		outer: for (int y = 0; y < h; y++) {
+			for (int x = 0; x < w; x++) {
+				int argb = src.getRGB(x, y);
+				int a = (argb >>> 24) & 0xFF;
+				if (a < 20) {
+					continue;
+				}
+				int r = (argb >> 16) & 0xFF;
+				int g = (argb >> 8) & 0xFF;
+				int b = argb & 0xFF;
+				if (refR < 0) {
+					refR = r;
+					refG = g;
+					refB = b;
+				} else if (Math.abs(r - refR) > 12 || Math.abs(g - refG) > 12 || Math.abs(b - refB) > 12) {
+					monochrome = false;
+					break outer;
+				}
+			}
+		}
+		if (!monochrome || refR < 0) {
+			return src;
+		}
+		double brightness = (refR + refG + refB) / 3.0;
+		if (brightness < 170) {
+			// already a dark icon, fine on a light background
+			return src;
+		}
+		Color tint = ColorResource.getWhite();
+		BufferedImage out = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		for (int y = 0; y < h; y++) {
+			for (int x = 0; x < w; x++) {
+				int argb = src.getRGB(x, y);
+				int a = (argb >>> 24) & 0xFF;
+				out.setRGB(x, y, (a << 24) | (tint.getRed() << 16) | (tint.getGreen() << 8) | tint.getBlue());
+			}
+		}
+		return out;
 	}
 
 //	private static ImageIcon getIcon(String name) {

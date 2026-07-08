@@ -49,6 +49,7 @@ import xdmplus.mediaconversion.MediaInfoExtractor;
 import xdmplus.ui.res.ColorResource;
 import xdmplus.ui.res.FontResource;
 import xdmplus.ui.res.ImageResource;
+import xdmplus.ui.res.MaterialCheckboxIcon;
 import xdmplus.ui.res.StringResource;
 import xdmplus.util.Logger;
 import xdmplus.util.StringUtils;
@@ -273,8 +274,8 @@ public class VideoConversionWnd extends JFrame implements ActionListener, Runnab
 
 		chkHwAccel = new JCheckBox(StringResource.get("LBL_HW_ACCEL"));
 		chkHwAccel.setBounds(getScaledValue(14), y, getScaledValue(190), getScaledValue(30));
-		chkHwAccel.setIcon(ImageResource.getIcon("unchecked.png",16,16));
-		chkHwAccel.setSelectedIcon(ImageResource.getIcon("checked.png",16,16));
+		chkHwAccel.setIcon(new MaterialCheckboxIcon(false, 16));
+		chkHwAccel.setSelectedIcon(new MaterialCheckboxIcon(true, 16));
 		chkHwAccel.setOpaque(false);
 		chkHwAccel.setFocusPainted(false);
 		chkHwAccel.setForeground(Color.WHITE);
